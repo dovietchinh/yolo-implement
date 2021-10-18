@@ -1,5 +1,8 @@
 import torch 
 import yaml
+import logging 
+LOGGER = logging.getLogger(__name__)
+
 def make_layer(name,layer,kernel_size,channel_out,stride,padding): 
     assert layer in ['Conv','MaxPool','Flatten','Dense','Reshape'], 'Invalid layer type'
     if layer=='Conv':
@@ -60,6 +63,11 @@ class Yolo(torch.nn.Module):
             # print(x.shape)
         return x
 
+    def post_process(self,x):
+        return x
+class Model(torch.nn.Modules):
+
+    def 
             
 
 if __name__ =='__main__': 

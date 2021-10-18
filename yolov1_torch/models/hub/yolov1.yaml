@@ -36,5 +36,4 @@ model:
   [FC1,Dense,null,4096,null,null],
   [FC2,Dense,null,1470,null,null],
   [Output,Reshape,null,1470,null,null]
-
   ]
