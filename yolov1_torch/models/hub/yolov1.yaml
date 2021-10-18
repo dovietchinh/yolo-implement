@@ -2,34 +2,39 @@ train:
   EPOCHS : 100
 
 model:
-  #layer,size,stride,block
+  #name,layer,kernel_size,channel_out,stride,padding
   [
-  [Conv,[7,7,64],2,1],
-  [Maxpool,[2,2],2,1],
-  #112x112x64
-  [Conv,[3,3,192],1,1],
-  [Maxpool,[2,2],2,1],
+  [Conv1, Conv,7,64,2,[3,3]],
+  [Max_Pool_1,MaxPool,2,64,2,[0,0]],
+  [Conv2, Conv,3,192,1,[1,1]],
+  [Max_Pool_2,MaxPool,2,192,2,[0,0]],
+  [Conv3, Conv,1,128,1,[0,0]],
+  [Conv4, Conv,3,256,1,[1,1]],
+  [Conv5, Conv,1,256,1,[0,0]],
+  [Conv6, Conv,1,512,1,[0,0]],
+  [Max_Pool_3,MaxPool,2,512,2,[0,0]],
+  [Conv7, Conv,1,256,1,[0,0]],
+  [Conv8, Conv,3,512,1,[1,1]],
+  [Conv9, Conv,1,256,1,[0,0]],
+  [Conv10, Conv,3,512,1,[1,1]],
+  [Conv11, Conv,1,256,1,[0,0]],
+  [Conv12, Conv,3,512,1,[1,1]],
+  [Conv13, Conv,1,256,1,[0,0]],
+  [Conv14, Conv,3,512,1,[1,1]],
+  [Conv15, Conv,1,512,1,[0,0]],
+  [Conv16, Conv,3,1024,1,[1,1]],
+  [Max_Pool_4,MaxPool,2,1024,2,[0,0]],
+  [Conv17, Conv,1,512,1,[0,0]],
+  [Conv18, Conv,3,1024,1,[1,1]],
+  [Conv19, Conv,1,512,1,[0,0]],
+  [Conv20, Conv,3,1024,1,[1,1]],
+  [Conv21, Conv,3,1024,1,[1,1]],
+  [Conv22, Conv,3,1024,2,[1,1]],
+  [Conv23, Conv,3,1024,1,[1,1]],
+  [Conv24, Conv,3,1024,1,[1,1]],
+  [Flatten,Flatten,null,50176,null,null],
+  [FC1,Dense,null,4096,null,null],
+  [FC2,Dense,null,1470,null,null],
+  [Output,Reshape,null,1470,null,null]
 
-  [Conv,[1,1,128],1,1],
-  [Conv,[3,3,256],1,1],
-  [Conv,[1,1,256],1,1],
-  [Conv,[3,3,512],1,1],
-  [Maxpool,[2,2],2,1],
-
-  [Conv,[1,1,256],1,4],
-  [Conv,[3,3,512],1,4],
-  [Conv,[1,1,512],1,1],
-  [Conv,[3,3,1024],1,1],
-  [Maxpool,[2,2],2,1],
-
-  [Conv,[1,1,512],1,2],
-  [Conv,[3,3,1024],1,2],
-  [Conv,[3,3,1024],1,1],
-  [Conv,[3,3,1024],2,1],
-
-  [Conv,[3,3,1024],1,1],
-  [Conv,[3,3,1024],1,1],
-  
-  [Flatten,[0,0,0],1,1],
-  [Reshape,[7,7,30],1,1]
   ]
